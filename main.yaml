@@ -1,0 +1,24 @@
+---
+- name: Learning ansible
+  host: webserver
+  become: true
+  handlers:
+  - name: restart apache
+    service: 
+      name: httpd
+      state: restarted
+      enable: true
+  tasks:
+  - name: install apache
+    package: 
+      name: httpd
+      state: installed
+  - name: Ensure /var/www/html directory is present
+    file:
+      path: /var/www/html 
+      ensure: directory
+  - name: download wordpress
+    get_url: 
+      src: http://wordpress.org/latest.tar.gz
+      dest: /ansible/Downloads
+      
