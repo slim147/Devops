@@ -19,4 +19,6 @@
       ensure: directory
   - name: download wordpress
     get_url: 
-    
+      src: http://wordpress.org/latest.tar.gz
+      dest: /ansible/Downloads
+      

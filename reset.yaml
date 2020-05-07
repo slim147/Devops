@@ -1,0 +1,12 @@
+---
+- name: Remove all running servers
+  hosts: all
+  tasks: 
+    - name: Remove all servers and database
+      package:
+        name: httpd
+        state: absent
+      register: server_removed
+    - name: confirm operation successful
+      debug: var=server_removed
+  
