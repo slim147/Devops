@@ -1,0 +1,13 @@
+---
+- name: confirgure docker for testing
+  host: webserver
+  tasks:
+    - name: install docker
+      package:
+        name: docker
+        state: installed
+    - name: start docker service
+      service: docker
+      state: stsrted
+      enable: true
+        
